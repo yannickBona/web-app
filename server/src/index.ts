@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 
 import mongoose from "mongoose";
 import Deck from "./models/Deck";
+import cors from "cors";
 
 import { logMessage } from "./utils/helpers";
 
@@ -12,9 +13,11 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Home");
+app.get("/decks", async (req: Request, res: Response) => {
+  const decks = await Deck.find();
+  res.json(decks);
 });
 
 app.post("/decks", async (req: Request, res: Response) => {
