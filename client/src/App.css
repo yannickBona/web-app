@@ -52,3 +52,18 @@ form button,
 form input {
   padding: 1rem;
 }
+
+header {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  align-items: center;
+}
+
+header a {
+  text-decoration: none;
+  color: #000;
+}
+header a:hover {
+  text-decoration: underline;
+}

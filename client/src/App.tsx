@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { createDeck } from "./api/decks/createDeck";
 import { deleteDeck } from "./api/decks/deleteDeck";
 import { getDecks } from "./api/decks/getDecks";
 import "./App.css";
 
-type TDeck = {
+export type TDeck = {
   _id: string;
   title: string;
+  cards?: string[];
 };
 
 function App() {
@@ -45,10 +47,12 @@ function App() {
       <h1>DECKS</h1>
       <div className="decks-container">
         {decks.map((deck) => (
-          <li key={deck._id}>
-            {deck.title}{" "}
-            <span onClick={() => handleDeleteDeck(deck._id)}>X</span>
-          </li>
+          <Link key={deck._id} to={`/${deck._id}`}>
+            <li>
+              {deck.title}{" "}
+              <span onClick={() => handleDeleteDeck(deck._id)}>X</span>
+            </li>
+          </Link>
         ))}
       </div>
 
