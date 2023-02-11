@@ -1,5 +1,5 @@
 # Description
-This is a full-stack web app,
+This is a simple full-stack web app i developed for practice & training
 
 # Client (react.ts)
 - `cd client`
